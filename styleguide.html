@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- @include head -->
+  <title>Design system · El Arika Factory</title>
+  <meta name="robots" content="noindex">
+</head>
+<body class="page-styleguide">
+<!-- @include header -->
+
+<main id="main" class="container sg">
+  <header class="sg__head">
+    <span class="eyebrow">Design system</span>
+    <h1 class="h1">El Arika Factory components</h1>
+    <p class="muted">Tokens live in <code>src/styles/tokens.css</code>. Every component below is the production markup; hover, focus and press them to see their live states.</p>
+  </header>
+
+  <section class="sg-sec" aria-labelledby="sg-colour">
+    <h2 class="section-title" id="sg-colour">Colour</h2>
+    <div class="sg-swatches">
+      <figure style="--c:var(--brand-red)"><span></span><figcaption><b>--brand-red</b>#E30613 · CTAs, prices, badges</figcaption></figure>
+      <figure style="--c:var(--red-dark)"><span></span><figcaption><b>--red-dark</b>#C5210B · hover, pressed</figcaption></figure>
+      <figure style="--c:var(--red-accent)"><span></span><figcaption><b>--red-accent</b>#E0382C · stickers</figcaption></figure>
+      <figure style="--c:var(--promo-yellow)"><span></span><figcaption><b>--promo-yellow</b>#FFD57B · promos only</figcaption></figure>
+      <figure style="--c:var(--trust-blue)"><span></span><figcaption><b>--trust-blue</b>#1E3E93 · financing</figcaption></figure>
+      <figure style="--c:var(--text-strong)"><span></span><figcaption><b>--text-strong</b>#1E1819 · headings</figcaption></figure>
+      <figure style="--c:var(--text)"><span></span><figcaption><b>--text</b>#333333 · body</figcaption></figure>
+      <figure style="--c:var(--text-muted)"><span></span><figcaption><b>--text-muted</b>#707070 · meta</figcaption></figure>
+      <figure style="--c:var(--border)"><span></span><figcaption><b>--border</b>#D9D9D9</figcaption></figure>
+      <figure style="--c:var(--surface)"><span></span><figcaption><b>--surface</b>#F2F2F2</figcaption></figure>
+      <figure style="--c:var(--canvas)"><span></span><figcaption><b>--canvas</b>#F7F5F3 · page</figcaption></figure>
+      <figure style="--c:var(--night)"><span></span><figcaption><b>--night</b>#17100F · dark grounds</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="sg-sec" aria-labelledby="sg-type">
+    <h2 class="section-title" id="sg-type">Typography</h2>
+    <div class="sg-type glass glass--strong">
+      <p class="h1">H1 · Montserrat 800, 36 to 48 px</p>
+      <p class="h2">H2 · Montserrat 700, 26 to 32 px</p>
+      <p class="h3">H3 · Montserrat 700, 20 px</p>
+      <p>Body · 15 to 16 px / 1.6. Arabic switches to Tajawal with the same scale.</p>
+      <p class="small muted">Small · 13 px, captions and meta</p>
+      <p lang="ar" dir="rtl" style="font-family:var(--font-ar);font-size:22px;font-weight:700">قوّتنا في السعر · أثاث مصنوع في الجزائر</p>
+      <div class="price"><span class="price__now">129&#8239;000<small>DA</small></span><s class="price__old">179&#8239;000</s><span class="disc">-28%</span></div>
+    </div>
+  </section>
+
+  <section class="sg-sec" aria-labelledby="sg-glass">
+    <h2 class="section-title" id="sg-glass">Glass materials</h2>
+    <div class="sg-glass">
+      <div class="glass sg-pane" data-liquid><b>.glass</b><span>Frosted base + rim + glare. With <code>data-liquid</code> Chromium adds edge refraction.</span></div>
+      <div class="glass glass--strong sg-pane"><b>.glass--strong</b><span>Denser tint for long text.</span></div>
+      <div class="glass glass--dark sg-pane"><b>.glass--dark</b><span>Smoked glass on photos and night grounds.</span></div>
+      <div class="glass glass--red sg-pane" data-liquid="lens"><b>.glass--red</b><span>Price coins, countdowns.</span></div>
+    </div>
+  </section>
+
+  <section class="sg-sec" aria-labelledby="sg-shape">
+    <h2 class="section-title" id="sg-shape">Radius, spacing, elevation</h2>
+    <div class="sg-shapes">
+      <div style="border-radius:var(--r-badge)">4 · badge</div>
+      <div style="border-radius:var(--r-input)">12 · input</div>
+      <div style="border-radius:var(--r-card)">18 · card</div>
+      <div style="border-radius:var(--r-panel)">28 · panel</div>
+      <div style="border-radius:var(--r-pill)">30 · pill</div>
+      <div style="border-radius:50%;width:96px">50%</div>
+    </div>
+    <div class="sg-space">
+      <span style="--w:4px">4</span><span style="--w:8px">8</span><span style="--w:12px">12</span><span style="--w:16px">16</span><span style="--w:24px">24</span><span style="--w:32px">32</span><span style="--w:48px">48</span><span style="--w:64px">64</span>
+    </div>
+    <div class="sg-shadows">
+      <div style="box-shadow:var(--shadow-card)">--shadow-card</div>
+      <div style="box-shadow:var(--shadow-hover)">--shadow-hover</div>
+      <div style="box-shadow:var(--shadow-red)">--shadow-red</div>
+    </div>
+  </section>
+
+  <section class="sg-sec" aria-labelledby="sg-btn">
+    <h2 class="section-title" id="sg-btn">Buttons, chips, badges</h2>
+    <div class="sg-row">
+      <button class="btn btn--primary" type="button">Add to cart</button>
+      <button class="btn btn--secondary" type="button">Check availability</button>
+      <button class="btn btn--glass" type="button"><svg class="i" aria-hidden="true"><use href="#i-cube"/></svg>See it in 3D</button>
+      <button class="btn btn--ghost" type="button">Back</button>
+      <button class="btn btn--primary" type="button" disabled>Disabled</button>
+      <button class="btn btn--primary btn--sm" type="button">Small</button>
+      <button class="btn btn--primary btn--lg" type="button">Large</button>
+    </div>
+    <div class="sg-row">
+      <button class="chip" type="button">Chip</button>
+      <button class="chip" type="button" aria-pressed="true">Selected chip</button>
+      <span class="store-chip"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Find your nearest store</span>
+      <a class="link-arrow" href="#">Discover<svg class="i flip-rtl" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="sg-row">
+      <span class="badge badge--new">New</span><span class="badge badge--promo">Promo</span><span class="badge badge--promo">-40%</span><span class="badge badge--best">Best price</span><span class="badge badge--delivery">Free delivery</span><span class="badge badge--assembly">Assembly included</span>
+    </div>
+    <div class="sg-row">
+      <div class="tabs glass" role="tablist"><button class="tab" role="tab" aria-selected="true" type="button">Modern</button><button class="tab" role="tab" aria-selected="false" type="button">Classic</button><button class="tab" role="tab" aria-selected="false" type="button">Compact</button></div>
+      <ol class="crumbs"><li><a href="#">Home</a></li><li><a href="#">Living rooms</a></li><li><span aria-current="page">Sofas</span></li></ol>
+    </div>
+  </section>
+
+  <section class="sg-sec" aria-labelledby="sg-cards">
+    <h2 class="section-title" id="sg-cards">Product card, skeleton, category tile</h2>
+    <div class="sg-cards" data-sg-cards></div>
+    <ul class="hscroll" data-sg-tiles></ul>
+  </section>
+
+  <section class="sg-sec" aria-labelledby="sg-forms">
+    <h2 class="section-title" id="sg-forms">Forms &amp; filters</h2>
+    <div class="sg-forms glass glass--strong">
+      <div class="field"><label for="sg1">Default input</label><input class="input" id="sg1" placeholder="Your city"></div>
+      <div class="field"><label for="sg2">Error</label><input class="input" id="sg2" value="0123" aria-invalid="true"><p class="field__error">Enter a mobile number starting with 05, 06 or 07.</p></div>
+      <div class="field"><label for="sg3">Disabled</label><input class="input" id="sg3" value="Blida" disabled></div>
+      <div class="field"><label for="sg4">Select</label><select class="select" id="sg4"><option>Alger</option><option>Oran</option></select></div>
+      <label class="check"><input type="checkbox" checked><span>Solid wood</span><span class="count">12</span></label>
+      <label class="option"><input type="radio" name="sg" checked><span><b>Home delivery</b><small>To every wilaya</small></span><span class="option__price">Free</span></label>
+      <div class="swatches"><button class="swatch" type="button" style="--sw:#2F5D50" aria-pressed="true" aria-label="Green"></button><button class="swatch" type="button" style="--sw:#E9E0D2" aria-label="Ivory"></button><button class="swatch" type="button" style="--sw:#C0633B" aria-label="Terracotta"></button></div>
+      <div class="qty"><button type="button" aria-label="-1"><svg class="i" aria-hidden="true"><use href="#i-minus"/></svg></button><input type="number" value="1" aria-label="Quantity"><button type="button" aria-label="+1"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></button></div>
+    </div>
+  </section>
+
+  <section class="sg-sec" aria-labelledby="sg-promo">
+    <h2 class="section-title" id="sg-promo">Countdown, price coin, carousel</h2>
+    <div class="countdown glass glass--red" data-sg-countdown>
+      <p class="countdown__label"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>These prices end in</p>
+      <div class="timer"><span class="timer__unit"><b data-d>00</b><small>days</small></span><span class="timer__sep">:</span><span class="timer__unit"><b data-h>00</b><small>hrs</small></span><span class="timer__sep">:</span><span class="timer__unit"><b data-m>00</b><small>min</small></span></div>
+    </div>
+    <div class="sg-row" style="margin-top:24px">
+      <span class="sticker glass glass--red" data-liquid="lens"><small>from</small><b>89&#8239;000</b><span>DA</span></span>
+      <button class="btn btn--primary" type="button" data-sg-toast>Show a toast</button>
+    </div>
+    <div class="carousel" data-carousel style="margin-top:24px">
+      <button class="carousel__arrow carousel__arrow--prev glass" type="button" aria-label="Previous"><svg class="i" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+      <div class="carousel__track" data-sg-track></div>
+      <button class="carousel__arrow carousel__arrow--next glass" type="button" aria-label="Next"><svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
+      <div class="carousel__dots"></div>
+    </div>
+  </section>
+</main>
+
+<!-- @include footer -->
+<script type="module" src="/src/js/pages/styleguide.js"></script>
+</body>
+</html>

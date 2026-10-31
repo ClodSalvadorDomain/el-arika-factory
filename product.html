@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- @include head -->
+  <title>Product · El Arika Factory</title>
+  <meta name="description" content="Factory-price furniture made in Algeria. Delivery and assembly in every wilaya, installment payment with your bank.">
+</head>
+<body class="page-product">
+<!-- @include header -->
+
+<main id="main" class="container pdp">
+  <nav class="pdp__crumbs" aria-label="Breadcrumb" data-i18n-aria="breadcrumb"><ol class="crumbs" data-crumbs></ol></nav>
+
+  <div class="pdp__top">
+    <!-- Gallery: photos with zoom, live 3D view for upholstered pieces -->
+    <section class="gallery" aria-label="Product images" data-i18n-aria="p_images">
+      <div class="gallery__stage">
+        <div class="gallery__view gallery__view--photo" data-view="photo">
+          <img data-main src="" alt="" width="1600" height="1200">
+        </div>
+        <div class="gallery__view gallery__view--3d" data-view="3d" hidden>
+          <div class="gallery__canvas" data-sofa3d></div>
+          <p class="gallery__hint glass"><svg class="i" aria-hidden="true"><use href="#i-rotate"/></svg><span data-i18n="p_drag">Drag to turn, scroll to zoom</span></p>
+        </div>
+        <div class="gallery__badges" data-badges></div>
+        <button class="pcard__wish glass gallery__wish" type="button" data-wish aria-pressed="false" aria-label="Add to wishlist" data-i18n-aria="wish_add"><svg class="i" aria-hidden="true"><use href="#i-heart"/></svg></button>
+        <div class="gallery__modes glass" data-liquid="pill" role="tablist" aria-label="View" data-i18n-aria="p_view">
+          <button class="tab" role="tab" type="button" aria-selected="true" data-mode="photo"><span data-i18n="p_photos">Photos</span></button>
+          <button class="tab" role="tab" type="button" aria-selected="false" data-mode="3d" data-mode-3d><svg class="i i--sm" aria-hidden="true"><use href="#i-cube"/></svg> <span data-i18n="p_3d">360° 3D</span></button>
+        </div>
+      </div>
+      <div class="gallery__thumbs" data-thumbs role="list"></div>
+    </section>
+
+    <!-- Buy box -->
+    <section class="buybox glass glass--strong" aria-labelledby="p-name">
+      <p class="buybox__ref small muted"><span data-i18n="p_ref">Ref.</span> <span class="nums" data-sku dir="ltr"></span></p>
+      <h1 class="h2 buybox__name" id="p-name" data-name></h1>
+      <a class="rating" href="#tabs" data-rating></a>
+      <div class="buybox__price" data-price></div>
+
+      <div class="fincalc">
+        <p class="fincalc__line"><svg class="i" aria-hidden="true"><use href="#i-card"/></svg><span data-fin></span></p>
+        <div class="fincalc__months" role="radiogroup" aria-label="Installment duration" data-i18n-aria="p_months" data-months>
+          <button class="chip" type="button" role="radio" aria-checked="false" data-m="12">12</button>
+          <button class="chip" type="button" role="radio" aria-checked="true" data-m="24">24</button>
+          <button class="chip" type="button" role="radio" aria-checked="false" data-m="36">36</button>
+          <span class="small muted" data-i18n="p_months_lbl">months, bank credit for Algerian-made furniture</span>
+        </div>
+      </div>
+
+      <div class="opt">
+        <p class="opt__label"><span data-i18n="f_colour">Colour</span>: <b data-colour-name></b></p>
+        <div class="swatches" role="radiogroup" aria-label="Colour" data-i18n-aria="f_colour" data-colours></div>
+      </div>
+      <div class="opt" data-size-opt hidden>
+        <p class="opt__label"><span data-i18n="p_size">Size</span>: <b data-size-name></b></p>
+        <div class="fchips" role="radiogroup" aria-label="Size" data-i18n-aria="p_size" data-sizes></div>
+      </div>
+
+      <div class="buybox__actions">
+        <div class="qty" data-qty>
+          <button type="button" data-q="-1" aria-label="Decrease quantity" data-i18n-aria="p_qminus"><svg class="i" aria-hidden="true"><use href="#i-minus"/></svg></button>
+          <input type="number" min="1" max="20" value="1" inputmode="numeric" aria-label="Quantity" data-i18n-aria="qty">
+          <button type="button" data-q="1" aria-label="Increase quantity" data-i18n-aria="p_qplus"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></button>
+        </div>
+        <button class="btn btn--primary btn--lg buybox__add" type="button" data-add-main><svg class="i" aria-hidden="true"><use href="#i-bag"/></svg><span data-i18n="add_to_cart">Add to cart</span></button>
+      </div>
+      <button class="btn btn--secondary btn--block" type="button" data-availability><svg class="i" aria-hidden="true"><use href="#i-store"/></svg><span data-i18n="p_avail">Check in-store availability</span></button>
+      <p class="stock" data-stock></p>
+
+      <fieldset class="services-opts">
+        <legend class="opt__label" data-i18n="p_delivery">Delivery &amp; assembly</legend>
+        <label class="option"><input type="radio" name="delivery" value="home" checked><span><b data-i18n="p_home">Home delivery</b><small data-i18n="p_home_d">On the day you choose, to every wilaya</small></span><span class="option__price" data-fee-home></span></label>
+        <label class="option"><input type="radio" name="delivery" value="pickup"><span><b data-i18n="p_pickup">Click &amp; collect</b><small data-i18n="p_pickup_d">Ready in 48 h at your showroom</small></span><span class="option__price" data-i18n="free">Free</span></label>
+        <label class="option"><input type="checkbox" name="assembly" data-assembly><span><b data-i18n="p_assembly">Assembly by our fitters</b><small data-i18n="p_assembly_d">Old furniture taken away on request</small></span><span class="option__price" data-fee-assembly></span></label>
+      </fieldset>
+    </section>
+  </div>
+
+  <!-- Tabs: description, dimensions, materials, downloads -->
+  <section class="pdp-tabs" id="tabs" aria-label="Product details" data-i18n-aria="p_details">
+    <div class="tabs glass" role="tablist" data-ptabs>
+      <button class="tab" role="tab" type="button" id="t-desc" aria-controls="p-desc" aria-selected="true" data-i18n="p_t_desc">Description</button>
+      <button class="tab" role="tab" type="button" id="t-dims" aria-controls="p-dims" aria-selected="false" tabindex="-1" data-i18n="p_t_dims">Dimensions</button>
+      <button class="tab" role="tab" type="button" id="t-mat" aria-controls="p-mat" aria-selected="false" tabindex="-1" data-i18n="p_t_mat">Materials</button>
+      <button class="tab" role="tab" type="button" id="t-dl" aria-controls="p-dl" aria-selected="false" tabindex="-1" data-i18n="p_t_dl">Downloads</button>
+    </div>
+    <div class="pdp-panel glass glass--strong" role="tabpanel" id="p-desc" aria-labelledby="t-desc" data-desc></div>
+    <div class="pdp-panel glass glass--strong" role="tabpanel" id="p-dims" aria-labelledby="t-dims" data-dims hidden></div>
+    <div class="pdp-panel glass glass--strong" role="tabpanel" id="p-mat" aria-labelledby="t-mat" data-mat hidden></div>
+    <div class="pdp-panel glass glass--strong" role="tabpanel" id="p-dl" aria-labelledby="t-dl" data-dl hidden></div>
+  </section>
+
+  <section class="section" aria-labelledby="look-title">
+    <div class="section-head"><h2 class="section-title" id="look-title" data-i18n="p_look">Complete the look</h2></div>
+    <div class="carousel" data-carousel="look">
+      <button class="carousel__arrow carousel__arrow--prev glass" type="button" aria-label="Previous" data-i18n-aria="prev"><svg class="i" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+      <div class="carousel__track" data-look></div>
+      <button class="carousel__arrow carousel__arrow--next glass" type="button" aria-label="Next" data-i18n-aria="next"><svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
+      <div class="carousel__dots"></div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="viewed-title">
+    <div class="section-head"><h2 class="section-title" id="viewed-title" data-i18n="p_viewed">Customers also viewed</h2></div>
+    <div class="carousel" data-carousel="viewed">
+      <button class="carousel__arrow carousel__arrow--prev glass" type="button" aria-label="Previous" data-i18n-aria="prev"><svg class="i" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+      <div class="carousel__track" data-viewed></div>
+      <button class="carousel__arrow carousel__arrow--next glass" type="button" aria-label="Next" data-i18n-aria="next"><svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
+      <div class="carousel__dots"></div>
+    </div>
+  </section>
+</main>
+
+<!-- Mobile sticky buy bar -->
+<div class="buybar glass" data-buybar>
+  <div class="buybar__price" data-buybar-price></div>
+  <button class="btn btn--primary" type="button" data-add-main><svg class="i" aria-hidden="true"><use href="#i-bag"/></svg><span data-i18n="add_to_cart">Add to cart</span></button>
+</div>
+
+<dialog class="dialog" data-avail-dialog aria-labelledby="avail-title">
+  <div class="dialog__head">
+    <h2 class="h3" id="avail-title" data-i18n="p_avail">Check in-store availability</h2>
+    <button class="icon-btn" type="button" data-dialog-close aria-label="Close" data-i18n-aria="close"><svg class="i" aria-hidden="true"><use href="#i-close"/></svg></button>
+  </div>
+  <div class="dialog__body"><ul class="avail-list" data-avail-list></ul></div>
+</dialog>
+
+<!-- @include footer -->
+<script type="module" src="/src/js/pages/product.js"></script>
+</body>
+</html>

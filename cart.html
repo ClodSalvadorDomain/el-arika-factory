@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- @include head -->
+  <title>Your cart · El Arika Factory</title>
+  <meta name="eaf-title-ar" content="سلّتك · مصنع الأريكة">
+  <meta name="robots" content="noindex">
+</head>
+<body class="page-cart">
+<!-- @include header -->
+
+<main id="main" class="container checkout">
+  <h1 class="h1 checkout__title" data-i18n="c_title">Your cart</h1>
+
+  <ol class="steps glass" data-steps aria-label="Checkout progress" data-i18n-aria="c_progress">
+    <li data-s="1"><span class="steps__n">1</span><span data-i18n="c_s1">Cart</span></li>
+    <li data-s="2"><span class="steps__n">2</span><span data-i18n="c_s2">Delivery</span></li>
+    <li data-s="3"><span class="steps__n">3</span><span data-i18n="c_s3">Payment</span></li>
+    <li data-s="4"><span class="steps__n">4</span><span data-i18n="c_s4">Confirmation</span></li>
+    <span class="steps__bar" aria-hidden="true"><span data-steps-bar></span></span>
+  </ol>
+
+  <div class="checkout__grid">
+    <section class="checkout__main">
+      <!-- Step 1: cart lines -->
+      <div data-step="1">
+        <ul class="lines" data-lines></ul>
+        <div class="empty-cart glass glass--strong" data-empty hidden>
+          <svg class="i" aria-hidden="true"><use href="#i-bag"/></svg>
+          <h2 class="h3" data-i18n="c_empty">Your cart is empty</h2>
+          <p class="muted" data-i18n="c_empty_t">Our weekly offers end on Thursday night.</p>
+          <a class="btn btn--primary" href="category.html?c=promotions" data-i18n="see_offers">See all offers</a>
+        </div>
+      </div>
+
+      <!-- Step 2: delivery -->
+      <form class="panel glass glass--strong" data-step="2" hidden novalidate>
+        <h2 class="h3" data-i18n="c_who">Who receives the order?</h2>
+        <div class="form-grid">
+          <div class="field"><label for="f-name" data-i18n="c_name">Full name</label><input class="input" id="f-name" name="name" required autocomplete="name"><p class="field__error" data-err="name"></p></div>
+          <div class="field"><label for="f-phone" data-i18n="c_phone">Mobile phone</label><input class="input" id="f-phone" name="phone" required type="tel" inputmode="tel" placeholder="05 / 06 / 07 …" pattern="^0[5-7][0-9 ]{8,11}$" autocomplete="tel" dir="ltr"><p class="field__error" data-err="phone"></p></div>
+        </div>
+
+        <h2 class="h3" data-i18n="c_how">How do you want it?</h2>
+        <div class="options">
+          <label class="option"><input type="radio" name="mode" value="home" checked><span><b data-i18n="p_home">Home delivery</b><small data-i18n="p_home_d">On the day you choose, to every wilaya</small></span><span class="option__price" data-fee-line></span></label>
+          <label class="option"><input type="radio" name="mode" value="pickup"><span><b data-i18n="p_pickup">Click &amp; collect</b><small data-i18n="p_pickup_d">Ready in 48 h at your showroom</small></span><span class="option__price" data-i18n="free">Free</span></label>
+        </div>
+
+        <div class="form-grid" data-home-fields>
+          <div class="field"><label for="f-wilaya" data-i18n="c_wilaya">Wilaya</label><select class="select" id="f-wilaya" name="wilaya" required data-wilayas></select><p class="field__error" data-err="wilaya"></p></div>
+          <div class="field"><label for="f-commune" data-i18n="c_commune">Commune</label><input class="input" id="f-commune" name="commune" required autocomplete="address-level2"><p class="field__error" data-err="commune"></p></div>
+          <div class="field field--wide"><label for="f-address" data-i18n="c_address">Address, building, floor</label><input class="input" id="f-address" name="address" required autocomplete="street-address"><p class="field__error" data-err="address"></p></div>
+          <div class="field"><label for="f-date" data-i18n="c_date">Preferred delivery day</label><select class="select" id="f-date" name="date" data-dates></select></div>
+          <div class="field"><label for="f-floor" data-i18n="c_lift">Lift in the building?</label><select class="select" id="f-floor" name="lift"><option value="yes" data-i18n="yes">Yes</option><option value="no" data-i18n="no">No</option></select></div>
+        </div>
+        <div class="form-grid" data-pickup-fields hidden>
+          <div class="field field--wide"><label for="f-store" data-i18n="c_store">Showroom</label><select class="select" id="f-store" name="store" data-store-select></select></div>
+        </div>
+      </form>
+
+      <!-- Step 3: payment -->
+      <form class="panel glass glass--strong" data-step="3" hidden novalidate>
+        <h2 class="h3" data-i18n="c_pay">How would you like to pay?</h2>
+        <div class="options">
+          <label class="option"><input type="radio" name="pay" value="cod" checked><span><b data-i18n="pay_cod">Cash on delivery</b><small data-i18n="c_cod_d">Pay the driver or at the showroom counter</small></span><svg class="i" aria-hidden="true"><use href="#i-truck"/></svg></label>
+          <label class="option"><input type="radio" name="pay" value="card"><span><b data-i18n="c_card">CIB or Edahabia card</b><small data-i18n="c_card_d">Secure online payment</small></span><svg class="i" aria-hidden="true"><use href="#i-card"/></svg></label>
+          <label class="option"><input type="radio" name="pay" value="credit"><span><b data-i18n="pay_credit">Bank installments</b><small data-fin-line></small></span><svg class="i" aria-hidden="true"><use href="#i-shield"/></svg></label>
+        </div>
+        <div class="form-grid" data-card-fields hidden>
+          <div class="field field--wide"><label for="f-card" data-i18n="c_cardno">Card number</label><input class="input" id="f-card" inputmode="numeric" autocomplete="cc-number" placeholder="6280 •••• •••• ••••" dir="ltr"></div>
+          <div class="field"><label for="f-exp" data-i18n="c_exp">Expiry</label><input class="input" id="f-exp" autocomplete="cc-exp" placeholder="MM/YY" dir="ltr"></div>
+          <div class="field"><label for="f-cvv" data-i18n="c_cvv">CVV2</label><input class="input" id="f-cvv" inputmode="numeric" autocomplete="cc-csc" placeholder="•••" dir="ltr"></div>
+        </div>
+        <p class="note" data-credit-note hidden data-i18n="c_credit_note">After you confirm, an adviser calls you within 24 hours to prepare the bank file. Nothing is charged today.</p>
+        <label class="check terms"><input type="checkbox" name="terms" required><span data-i18n="c_terms">I accept the terms of sale.</span></label>
+        <p class="field__error" data-err="terms"></p>
+      </form>
+
+      <!-- Step 4: confirmation -->
+      <div class="panel glass glass--strong confirm" data-step="4" hidden tabindex="-1">
+        <span class="confirm__icon"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span>
+        <h2 class="h2" data-i18n="c_thanks">Thank you, your order is confirmed</h2>
+        <p class="muted"><span data-i18n="order_no">Order number</span>: <b class="nums" data-order-no dir="ltr"></b></p>
+        <p data-i18n="c_next">We will call you to confirm the delivery slot. You will receive an SMS the day before.</p>
+        <a class="btn btn--primary" href="index.html" data-i18n="c_continue">Continue shopping</a>
+      </div>
+    </section>
+
+    <aside class="summary" aria-labelledby="sum-title">
+      <div class="summary__box glass glass--strong">
+        <h2 class="h3" id="sum-title" data-i18n="c_summary">Order summary</h2>
+        <dl class="summary__rows" data-sum></dl>
+        <p class="fin-line summary__fin" data-sum-fin></p>
+        <button class="btn btn--primary btn--lg btn--block" type="button" data-next></button>
+        <button class="btn btn--ghost btn--block" type="button" data-back hidden data-i18n="c_back">Back</button>
+        <ul class="summary__trust">
+          <li><svg class="i" aria-hidden="true"><use href="#i-shield"/></svg><span data-i18n="c_t1">Secure payment</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-return"/></svg><span data-i18n="s5_d">Change your mind within 14 days</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg><span dir="ltr">0770 00 00 00</span></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<!-- @include footer -->
+<script type="module" src="/src/js/pages/cart.js"></script>
+</body>
+</html>

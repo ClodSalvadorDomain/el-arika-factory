@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- @include head -->
+  <title>Showrooms &amp; store locator · El Arika Factory</title>
+  <meta name="eaf-title-ar" content="المعارض · مصنع الأريكة">
+  <meta name="description" content="Find your nearest El Arika Factory showroom: opening hours, phone numbers and directions in Alger, Blida, Oran, Constantine, Sétif, Annaba and Tlemcen.">
+</head>
+<body class="page-stores">
+<!-- @include header -->
+
+<main id="main" class="container stores">
+  <header class="stores__head">
+    <nav aria-label="Breadcrumb" data-i18n-aria="breadcrumb"><ol class="crumbs"><li><a href="index.html" data-i18n="home">Home</a></li><li><span aria-current="page" data-i18n="sl_title">Our showrooms</span></li></ol></nav>
+    <h1 class="h1" data-i18n="sl_title">Our showrooms</h1>
+    <p class="muted" data-i18n="sl_sub">Sit on every sofa, open every drawer, and book your free 3D kitchen plan.</p>
+  </header>
+
+  <div class="stores__layout">
+    <aside class="stores__panel glass glass--strong" aria-label="Store list" data-i18n-aria="sl_list">
+      <form class="stores__search" role="search" data-store-search>
+        <label class="sr-only" for="store-q" data-i18n="st_city_label">Your city</label>
+        <svg class="i" aria-hidden="true"><use href="#i-search"/></svg>
+        <input class="input" id="store-q" type="search" placeholder="Your city or wilaya" data-i18n-ph="st_city_ph" autocomplete="address-level2">
+        <button class="btn btn--glass btn--sm" type="button" data-locate><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg><span data-i18n="sl_near">Near me</span></button>
+      </form>
+      <p class="small muted stores__count" data-store-count aria-live="polite"></p>
+      <ul class="store-list" data-store-list></ul>
+    </aside>
+    <div class="stores__map">
+      <div class="map" data-map role="region" aria-label="Map of showrooms" data-i18n-aria="sl_map"></div>
+      <p class="map__fallback small muted" data-map-fallback hidden data-i18n="sl_offline">The map could not load. Use the list to get directions.</p>
+    </div>
+  </div>
+</main>
+
+<!-- @include footer -->
+<script type="module" src="/src/js/pages/stores.js"></script>
+</body>
+</html>

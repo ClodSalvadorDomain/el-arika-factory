@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- @include head -->
+  <title>Furniture catalog · El Arika Factory</title>
+  <meta name="eaf-title-ar" content="كتالوج الأثاث · مصنع الأريكة">
+  <meta name="description" content="Browse sofas, kitchens, bedrooms and dining rooms at factory prices. Filter by width, colour, material and style.">
+</head>
+<body class="page-category">
+<!-- @include header -->
+
+<main id="main" class="container cat-page">
+  <nav class="cat-crumbs" aria-label="Breadcrumb" data-i18n-aria="breadcrumb">
+    <ol class="crumbs" data-crumbs></ol>
+  </nav>
+
+  <header class="cat-head">
+    <div>
+      <h1 class="h1" data-cat-title>Catalog</h1>
+      <p class="muted" data-cat-count aria-live="polite"></p>
+    </div>
+    <ul class="cat-subs hscroll" data-cat-subs></ul>
+  </header>
+
+  <div class="cat-layout">
+    <aside class="filters" id="filters" data-filters aria-labelledby="filters-title">
+      <div class="filters__panel glass glass--strong">
+        <div class="filters__head">
+          <h2 class="h3" id="filters-title" data-i18n="f_title">Filters</h2>
+          <button class="linklike filters__reset" type="button" data-reset data-i18n="f_reset">Reset</button>
+          <button class="icon-btn filters__close" type="button" data-filters-close aria-label="Close filters" data-i18n-aria="f_close"><svg class="i" aria-hidden="true"><use href="#i-close"/></svg></button>
+        </div>
+        <form class="filters__body" data-filter-form>
+          <fieldset class="fgroup">
+            <legend data-i18n="f_price">Price</legend>
+            <div class="range" data-range>
+              <div class="range__track"><span class="range__fill" data-range-fill></span></div>
+              <input type="range" name="pmin" step="1000" aria-label="Minimum price" data-i18n-aria="f_pmin">
+              <input type="range" name="pmax" step="1000" aria-label="Maximum price" data-i18n-aria="f_pmax">
+            </div>
+            <p class="range__out nums" data-range-out></p>
+          </fieldset>
+          <fieldset class="fgroup">
+            <legend data-i18n="f_width">Width</legend>
+            <div class="fchips" data-widths></div>
+          </fieldset>
+          <fieldset class="fgroup">
+            <legend data-i18n="f_colour">Colour</legend>
+            <div class="swatches" data-colours></div>
+          </fieldset>
+          <fieldset class="fgroup">
+            <legend data-i18n="f_material">Material</legend>
+            <div data-materials></div>
+          </fieldset>
+          <fieldset class="fgroup">
+            <legend data-i18n="f_style">Style</legend>
+            <div data-styles></div>
+          </fieldset>
+          <fieldset class="fgroup">
+            <legend data-i18n="f_avail">Availability</legend>
+            <label class="check"><input type="checkbox" name="instock"><span data-i18n="f_instock">In stock, fast delivery</span></label>
+            <label class="check"><input type="checkbox" name="promo"><span data-i18n="f_promo">On promotion</span></label>
+          </fieldset>
+        </form>
+        <div class="filters__foot">
+          <button class="btn btn--primary btn--block" type="button" data-filters-close data-apply></button>
+        </div>
+      </div>
+    </aside>
+
+    <section class="cat-main" aria-labelledby="results-label">
+      <h2 class="sr-only" id="results-label" data-i18n="results">Results</h2>
+      <div class="sortbar glass">
+        <button class="btn btn--ghost btn--sm sortbar__filters" type="button" data-filters-open aria-controls="filters"><svg class="i" aria-hidden="true"><use href="#i-filter"/></svg><span data-i18n="f_title">Filters</span></button>
+        <div class="active-filters" data-active></div>
+        <label class="sortbar__sort">
+          <span data-i18n="sort_by">Sort by</span>
+          <select class="select" data-sort>
+            <option value="relevance" data-i18n="sort_rel">Relevance</option>
+            <option value="price-asc" data-i18n="sort_asc">Price: low to high</option>
+            <option value="price-desc" data-i18n="sort_desc">Price: high to low</option>
+            <option value="discount" data-i18n="sort_disc">Biggest discount</option>
+            <option value="rating" data-i18n="sort_rating">Best rated</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="pgrid" data-grid aria-live="polite"></div>
+      <p class="empty glass" data-empty hidden></p>
+
+      <div class="loadmore" data-loadmore>
+        <p class="small muted" data-shown></p>
+        <div class="loadmore__bar"><span data-shown-bar></span></div>
+        <button class="btn btn--secondary" type="button" data-more data-i18n="load_more">Load more</button>
+      </div>
+    </section>
+  </div>
+
+  <section class="seo glass" aria-labelledby="seo-title">
+    <h2 class="h3" id="seo-title" data-seo-title></h2>
+    <div class="seo__cols" data-seo-text></div>
+  </section>
+</main>
+
+<!-- @include footer -->
+<script type="module" src="/src/js/pages/category.js"></script>
+</body>
+</html>

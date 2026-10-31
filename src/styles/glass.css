@@ -1,0 +1,107 @@
+/* ==========================================================================
+   Liquid glass material
+   --------------------------------------------------------------------------
+   Layer model taken from liquid-glass-js (base tint, rim light, edge
+   refraction), rebuilt for a scrolling page:
+     .glass            frosted base: tint + blur + saturation + rim + glare
+     [data-liquid]     Chromium only: glass.js swaps the CSS blur for an SVG
+                       displacement filter so the backdrop bends at the edges
+     .glass--strong    more opaque, for dense text
+     .glass--dark      smoked glass on dark or photographic grounds
+     .glass--red       brand-red glass for primary actions and price stickers
+   Pseudo-elements sit at z-index -1 inside the element's own stacking
+   context (isolation), so they paint over the background but under content.
+   ========================================================================== */
+
+.glass {
+  position: relative;
+  isolation: isolate;
+  background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.62) 0%, rgba(255, 255, 255, 0.30) 55%, rgba(255, 255, 255, 0.44) 100%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.28),
+    var(--glass-shadow);
+}
+
+/* Rim light: a 1px gradient border that is brighter on the lit corners. */
+.glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.18) 32%,
+    rgba(255, 255, 255, 0.04) 58%,
+    rgba(255, 255, 255, 0.65) 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Glare: a soft specular bloom across the top of the pane. */
+.glass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background:
+    radial-gradient(120% 70% at 18% -12%, rgba(255, 255, 255, 0.55), transparent 58%),
+    radial-gradient(80% 50% at 100% 120%, rgba(255, 255, 255, 0.22), transparent 60%);
+  pointer-events: none;
+}
+
+.glass--strong {
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.70));
+}
+
+.glass--dark {
+  color: #fff;
+  background: linear-gradient(150deg, rgba(40, 26, 27, 0.52), rgba(20, 12, 13, 0.34));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.06),
+    0 18px 40px -16px rgba(0, 0, 0, 0.5);
+}
+.glass--dark::before {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.06) 40%, rgba(255, 255, 255, 0.02) 60%, rgba(255, 255, 255, 0.3));
+}
+.glass--dark::after {
+  background: radial-gradient(120% 70% at 18% -12%, rgba(255, 255, 255, 0.16), transparent 58%);
+}
+
+.glass--red {
+  color: #fff;
+  background:
+    linear-gradient(160deg, rgba(240, 40, 48, 0.94) 0%, rgba(227, 6, 19, 0.92) 45%, rgba(170, 8, 18, 0.94) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -2px 6px rgba(90, 0, 6, 0.35),
+    var(--shadow-red);
+}
+.glass--red::before {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.12) 36%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.35));
+}
+.glass--red::after {
+  background: radial-gradient(110% 80% at 25% -20%, rgba(255, 255, 255, 0.42), transparent 55%);
+}
+
+/* Without backdrop-filter support, fall back to solid-ish panes so text
+   contrast never depends on what scrolls underneath. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass { background: rgba(255, 255, 255, 0.92); }
+  .glass--dark { background: rgba(28, 18, 19, 0.9); }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass { background: rgba(255, 255, 255, 0.94); backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .glass--dark { background: rgba(28, 18, 19, 0.94); }
+  .glass--red { background: var(--brand-red); }
+}

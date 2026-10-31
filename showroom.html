@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- @include head -->
+  <title>The 3D showroom · El Arika Factory</title>
+  <meta name="eaf-title-ar" content="المعرض ثلاثي الأبعاد · مصنع الأريكة">
+  <meta name="description" content="Scroll to watch a sofa come together in our Blida factory, choose its fabric live in 3D, then walk through every room at factory prices.">
+</head>
+<body class="page-showroom">
+<!-- @include icons -->
+<a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+<span data-sc-progress></span>
+<div class="sc-grain" aria-hidden="true"></div>
+
+<!-- Compact floating glass bar: the showroom keeps the whole viewport for the scene -->
+<header class="sr-bar" data-header>
+  <div class="sr-bar__glass glass" data-liquid="pill">
+    <a class="logo" href="index.html" aria-label="El Arika Factory, home">
+      <svg class="logo__mark" aria-hidden="true"><use href="#i-emblem"/></svg>
+      <span class="logo__word"><b>EL&nbsp;ARIKA</b><small>FACTORY · <span lang="ar">الأريكة</span></small></span>
+    </a>
+    <nav class="sr-bar__links" aria-label="Shop" data-i18n-aria="shortcuts">
+      <a href="category.html?c=sofas" data-i18n="n_sofas">Sofas</a>
+      <a href="category.html?c=kitchens" data-i18n="n_kitchens">Kitchens</a>
+      <a href="category.html?c=bedrooms" data-i18n="n_bedrooms">Bedrooms</a>
+      <a href="stores.html" data-i18n="sl_title">Our showrooms</a>
+    </nav>
+    <div class="sr-bar__end">
+      <button class="lang-switch" type="button" data-lang-toggle aria-label="العربية / English"><span data-lang-opt="en">EN</span><span data-lang-opt="ar" lang="ar">ع</span></button>
+      <a class="icon-btn cart-btn" href="cart.html" aria-label="Cart" data-i18n-aria="cart"><svg class="i" aria-hidden="true"><use href="#i-bag"/></svg><span class="count-badge" data-cart-count hidden>0</span></a>
+      <a class="btn btn--primary btn--sm sr-bar__cta" href="category.html?c=sofas" data-i18n="sr_cta">Shop the collection</a>
+    </div>
+  </div>
+</header>
+<div class="toast glass" role="status" aria-live="polite" data-toast hidden></div>
+
+<main id="main">
+
+  <!-- 1 · ARRIVAL: layered planes. Liquid gradient (back), liquid-metal emblem (mid), glass copy (front) -->
+  <section class="sr-hero" data-sc-act="flow" data-sc-drift="#F7F5F3" aria-labelledby="sr-title">
+    <div class="sr-hero__gradient" data-gradient="showroom" data-sc-parallax="0.18" aria-hidden="true"></div>
+    <div class="sr-hero__emblem" data-sc-parallax="-0.12" aria-hidden="true">
+      <canvas data-liquid-logo></canvas>
+    </div>
+    <div class="sr-hero__copy glass glass--strong" data-liquid="panel" data-sc-parallax="-0.34">
+      <span class="eyebrow" data-i18n="sr_kicker">The El Arika showroom</span>
+      <h1 class="sr-display" id="sr-title" data-i18n="sr_title">Made in Blida. Assembled under your scroll.</h1>
+      <p class="sr-lede" data-i18n="sr_lede">Keep scrolling: a sofa builds itself, takes the fabric you choose, then the rooms open up.</p>
+    </div>
+  </section>
+
+  <!-- 2 · THE PEAK: the sofa assembles across the longest span on the page -->
+  <section class="sr-build" data-sc-act="pin" data-sc-span="3.6" data-sc-drift="#F3EDE9" aria-labelledby="build-title">
+    <div data-sc-stage class="sr-build__stage">
+      <div class="sr-build__glow" aria-hidden="true"></div>
+      <div class="sr-build__canvas" data-sofa aria-hidden="true"></div>
+
+      <ol class="sr-rail glass" data-rail aria-hidden="true">
+        <li data-at="0" data-i18n="sr_r1">Frame</li>
+        <li data-at="0.3" data-i18n="sr_r2">Seat</li>
+        <li data-at="0.52" data-i18n="sr_r3">Back</li>
+        <li data-at="0.8" data-i18n="sr_r4">Fabric</li>
+      </ol>
+
+      <div class="sr-build__copy">
+        <h2 class="sr-line" id="build-title" data-sc-cue="0 0.28 0" data-i18n="sr_l1">It starts as a solid wood frame.</h2>
+        <p class="sr-line" data-sc-cue="0.24 0.52" data-i18n="sr_l2">Arms and seat cushions, cut and wrapped by hand.</p>
+        <p class="sr-line" data-sc-cue="0.48 0.76" data-i18n="sr_l3">Back cushions set at the angle you sink into.</p>
+        <p class="sr-line" data-sc-cue="0.72" data-i18n="sr_l4">Then the fabric is your call.</p>
+      </div>
+
+      <div class="sr-dock glass" data-liquid="pill" data-sc-cue="0.8" data-sc-rise="0">
+        <div class="sr-dock__swatches" role="radiogroup" aria-label="Fabric colour" data-i18n-aria="fabric">
+          <button class="swatch" type="button" role="radio" aria-checked="true" style="--sw:#2F5D50" data-fabric="#2F5D50" data-name-en="Forest velvet" data-name-ar="مخمل أخضر" aria-label="Forest velvet"></button>
+          <button class="swatch" type="button" role="radio" aria-checked="false" style="--sw:#E30613" data-fabric="#E30613" data-name-en="El Arika red" data-name-ar="أحمر الأريكة" aria-label="El Arika red"></button>
+          <button class="swatch" type="button" role="radio" aria-checked="false" style="--sw:#E9E0D2" data-fabric="#E9E0D2" data-name-en="Ivory bouclé" data-name-ar="بوكليه عاجي" aria-label="Ivory bouclé"></button>
+          <button class="swatch" type="button" role="radio" aria-checked="false" style="--sw:#C0633B" data-fabric="#C0633B" data-name-en="Terracotta" data-name-ar="طوبي" aria-label="Terracotta"></button>
+          <button class="swatch" type="button" role="radio" aria-checked="false" style="--sw:#7F9DB5" data-fabric="#7F9DB5" data-name-en="Mist blue" data-name-ar="أزرق ضبابي" aria-label="Mist blue"></button>
+          <button class="swatch" type="button" role="radio" aria-checked="false" style="--sw:#3B3D42" data-fabric="#3B3D42" data-name-en="Anthracite" data-name-ar="أنثراسيت" aria-label="Anthracite"></button>
+        </div>
+        <div class="sr-dock__info">
+          <b data-fabric-name>Forest velvet</b>
+          <span><span data-i18n="sr_from">Hoggar 3-seat from</span> <b class="nums" data-sr-price></b></span>
+        </div>
+        <a class="btn btn--primary btn--sm" href="product.html?id=hoggar-3" data-i18n="sr_view">View this sofa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · ORIGIN: a document act on purpose, with a wipe reveal -->
+  <section class="sr-origin sc-section" data-sc-act="flow" data-sc-drift="#EFE8E3" aria-labelledby="origin-title">
+    <div class="container sr-origin__grid">
+      <div class="sr-origin__text" data-sc-in>
+        <h2 class="sr-h2" id="origin-title" data-i18n="sr_o_title">No middleman between our workshop and your salon.</h2>
+        <p data-i18n="sr_o_p1">We cut, sew and assemble in Blida, then deliver with our own trucks. What other shops pay to importers and wholesalers stays in your pocket.</p>
+        <p data-i18n="sr_o_p2">Because it is made here, your furniture also qualifies for bank installment credit, and spare parts are never an ocean away.</p>
+        <a class="link-arrow" href="stores.html"><span data-i18n="sr_o_cta">Visit the factory showroom</span><svg class="i flip-rtl" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <figure class="sr-origin__fig" data-sc-reveal="left" data-sc-reveal-at="0.12 0.5">
+        <img src="img/living-dusk.webp" alt="A large sectional sofa in a lounge with tall windows at dusk" width="2000" height="1333" loading="lazy">
+      </figure>
+    </div>
+  </section>
+
+  <!-- 4 · RANGE: lateral travel through the rooms -->
+  <section class="sr-rooms" data-sc-act="pan" data-sc-span="3" data-sc-drift="#F5F0EC" aria-labelledby="rooms-title">
+    <div data-sc-stage class="sr-rooms__stage">
+      <div class="sr-rail-pan" data-sc-pan="0.08">
+        <div class="sr-rooms__lead">
+          <h2 class="sr-h2" id="rooms-title" data-i18n="sr_rooms">Every room, one factory.</h2>
+          <p class="muted" data-i18n="sr_rooms_p">Prices are factory prices, delivery and assembly included above 150 000 DA.</p>
+        </div>
+        <div data-rooms class="sr-rooms__cards"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · CLOSE: the page goes dark and holds on one action -->
+  <section class="sr-close" data-sc-act="pin" data-sc-span="1.2" data-sc-drift="#17100F" aria-labelledby="close-title">
+    <div data-sc-stage class="sr-close__stage" data-sc-spotlight>
+      <div class="sr-close__inner">
+        <h2 class="sr-display sr-close__title" id="close-title" data-sc-cue="0.05" data-i18n="sr_close">Now come and sit on it.</h2>
+        <p class="sr-close__sub" data-sc-cue="0.1" data-i18n="sr_close_p">Eight showrooms and the factory in Blida. Open Saturday to Thursday, Friday afternoons.</p>
+        <div class="sr-close__ctas" data-sc-cue="0.12" data-sc-rise="0">
+          <a class="btn btn--primary btn--lg" href="category.html?c=sofas" data-sc-magnet="0.25" data-i18n="sr_cta">Shop the collection</a>
+          <a class="btn btn--glass btn--lg sr-close__ghost" href="stores.html" data-i18n="find_store">Find your nearest store</a>
+        </div>
+      </div>
+      <p class="sr-close__foot"><span>© 2026 El Arika Factory</span> · <a href="index.html" data-i18n="home">Home</a> · <a href="stores.html" data-i18n="sl_title">Our showrooms</a></p>
+    </div>
+  </section>
+</main>
+
+<script type="module" src="/src/js/pages/showroom.js"></script>
+</body>
+</html>

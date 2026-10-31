@@ -1,0 +1,91 @@
+<!-- @include icons -->
+<a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+<!-- 1. Utility bar: rotating service messages -->
+<div class="utility" role="region" aria-label="Announcements" data-i18n-aria="announcements">
+  <div class="container utility__inner">
+    <ul class="ticker" data-ticker aria-live="polite">
+      <li class="is-on"><svg class="i" aria-hidden="true"><use href="#i-truck"/></svg><span data-i18n="ticker1">Free delivery &amp; assembly on orders over 150 000 DA</span></li>
+      <li><svg class="i" aria-hidden="true"><use href="#i-card"/></svg><span data-i18n="ticker2">Pay in installments with your bank. Our furniture is made in Algeria, so it qualifies.</span></li>
+      <li><svg class="i" aria-hidden="true"><use href="#i-store"/></svg><span data-i18n="ticker3">Click &amp; collect in 8 showrooms</span></li>
+    </ul>
+    <div class="utility__links">
+      <a href="showroom.html" data-i18n="u_showroom">3D showroom</a>
+      <a href="stores.html" data-i18n="u_help">Help &amp; contact</a>
+      <a href="tel:+213770000000" dir="ltr">0770 00 00 00</a>
+    </div>
+  </div>
+</div>
+
+<!-- 2 + 3. Sticky glass header with search and mega-menu navigation -->
+<header class="site-header" data-header>
+  <div class="header-glass glass" data-liquid="header">
+    <div class="container header__row">
+      <button class="icon-btn menu-toggle" type="button" data-drawer-open aria-controls="drawer" aria-expanded="false" aria-label="Open menu" data-i18n-aria="open_menu">
+        <svg class="i" aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+
+      <a class="logo" href="index.html" aria-label="El Arika Factory, home">
+        <svg class="logo__mark" aria-hidden="true"><use href="#i-emblem"/></svg>
+        <span class="logo__word"><b>EL&nbsp;ARIKA</b><small>FACTORY · <span lang="ar">الأريكة</span></small></span>
+      </a>
+
+      <form class="search" role="search" action="category.html" data-search>
+        <label class="sr-only" for="site-search" data-i18n="search_label">Search the catalog</label>
+        <input id="site-search" name="q" type="search" placeholder="What are you looking for?" data-i18n-ph="search_ph" autocomplete="off" aria-controls="search-suggest" aria-expanded="false" aria-autocomplete="list">
+        <button class="search__btn" type="submit" aria-label="Search" data-i18n-aria="search">
+          <svg class="i" aria-hidden="true"><use href="#i-search"/></svg>
+        </button>
+        <div class="search__suggest glass" id="search-suggest" role="listbox" data-suggest hidden></div>
+      </form>
+
+      <nav class="header__actions" aria-label="Shortcuts" data-i18n-aria="shortcuts">
+        <button class="lang-switch" type="button" data-lang-toggle aria-label="العربية / English">
+          <span data-lang-opt="en">EN</span><span data-lang-opt="ar" lang="ar">ع</span>
+        </button>
+        <a class="icon-btn hide-md" href="stores.html" aria-label="Find your nearest store" data-i18n-aria="find_store">
+          <svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>
+        </a>
+        <a class="icon-btn hide-md" href="#account" aria-label="Account" data-i18n-aria="account">
+          <svg class="i" aria-hidden="true"><use href="#i-user"/></svg>
+        </a>
+        <a class="icon-btn hide-sm" href="category.html?c=wishlist" aria-label="Wishlist" data-i18n-aria="wishlist">
+          <svg class="i" aria-hidden="true"><use href="#i-heart"/></svg>
+          <span class="count-badge" data-wish-count hidden>0</span>
+        </a>
+        <a class="icon-btn cart-btn" href="cart.html" aria-label="Cart" data-i18n-aria="cart">
+          <svg class="i" aria-hidden="true"><use href="#i-bag"/></svg>
+          <span class="count-badge" data-cart-count hidden>0</span>
+        </a>
+      </nav>
+    </div>
+
+    <nav class="mainnav" aria-label="Departments" data-i18n-aria="departments">
+      <ul class="container mainnav__list" data-mainnav></ul>
+    </nav>
+  </div>
+
+  <div class="mega" data-mega hidden>
+    <div class="container">
+      <div class="mega__panel glass" data-mega-panel></div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile drawer: departments become accordions -->
+<div class="drawer" id="drawer" data-drawer hidden>
+  <div class="drawer__scrim" data-drawer-close></div>
+  <aside class="drawer__panel glass" aria-label="Menu" data-i18n-aria="menu">
+    <div class="drawer__head">
+      <a class="logo logo--sm" href="index.html"><svg class="logo__mark" aria-hidden="true"><use href="#i-emblem"/></svg><span class="logo__word"><b>EL&nbsp;ARIKA</b></span></a>
+      <button class="icon-btn" type="button" data-drawer-close aria-label="Close menu" data-i18n-aria="close_menu"><svg class="i" aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <div class="drawer__body" data-drawer-body></div>
+    <div class="drawer__foot">
+      <a class="chip" href="stores.html"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg><span data-i18n="find_store">Find your nearest store</span></a>
+      <a class="chip" href="showroom.html"><svg class="i" aria-hidden="true"><use href="#i-cube"/></svg><span data-i18n="u_showroom">3D showroom</span></a>
+    </div>
+  </aside>
+</div>
+
+<div class="toast glass" role="status" aria-live="polite" data-toast hidden></div>

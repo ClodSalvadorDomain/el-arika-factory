@@ -1,0 +1,91 @@
+/* ==========================================================================
+   Design tokens: El Arika Factory
+   Brand colours follow the retail master spec. Radii are softened from the
+   spec (cards 8px -> 18px) to carry the iOS-style glass language the client
+   asked for; every value lives here so it can be tuned in one place.
+   ========================================================================== */
+:root {
+  /* ---- colour: brand */
+  --brand-red:    #E30613;   /* logo, CTAs, prices, promo badges, active states */
+  --red-dark:     #C5210B;   /* hover / pressed on red */
+  --red-accent:   #E0382C;   /* sale stickers, countdowns */
+  --red-deep:     #8E0A12;   /* gradient depth on red glass */
+  --promo-yellow: #FFD57B;   /* promo-only highlight */
+  --trust-blue:   #1E3E93;   /* financing / info, sparingly */
+
+  /* ---- colour: neutrals */
+  --text:        #333333;
+  --text-strong: #1E1819;    /* warm off-black for headings */
+  --text-muted:  #707070;
+  --border:      #D9D9D9;
+  --surface:     #F2F2F2;
+  --white:       #FFFFFF;
+  --canvas:      #F7F5F3;    /* page ground, a warm pearl */
+  --night:       #17100F;    /* dark grounds: utility bar, showroom finale */
+
+  /* ---- glass material */
+  --glass-tint:        rgba(255, 255, 255, 0.50);
+  --glass-tint-strong: rgba(255, 255, 255, 0.74);
+  --glass-tint-dark:   rgba(28, 18, 19, 0.46);
+  --glass-rim:         rgba(255, 255, 255, 0.85);
+  --glass-blur:        18px;
+  --glass-sat:         1.7;
+  --glass-shadow:      0 1px 1px rgba(60, 20, 24, 0.04), 0 10px 30px -12px rgba(60, 20, 24, 0.22);
+
+  /* ---- type */
+  --font:    "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-ar: "Tajawal", "Montserrat", system-ui, sans-serif;
+  --fs-h1:    clamp(2.25rem, 1.55rem + 2.2vw, 3rem);      /* 36 -> 48 */
+  --fs-h2:    clamp(1.625rem, 1.4rem + 0.8vw, 2rem);      /* 26 -> 32 */
+  --fs-h3:    1.25rem;                                    /* 20 */
+  --fs-body:  clamp(0.9375rem, 0.92rem + 0.1vw, 1rem);    /* 15 -> 16 */
+  --fs-small: 0.8125rem;                                  /* 13 */
+  --fs-micro: 0.6875rem;                                  /* 11, badges only, bold uppercase */
+  --fs-price: clamp(1.5rem, 1.3rem + 0.6vw, 2rem);        /* 24 -> 32 */
+  --track-tight: -0.025em;
+  --track-wide:  0.14em;
+
+  /* ---- shape */
+  --r-pill:  30px;
+  --r-card:  18px;
+  --r-panel: 28px;
+  --r-input: 12px;
+  --r-badge: 4px;
+  --r-round: 50%;
+
+  /* ---- space: 8px base */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px; --s-5: 24px;
+  --s-6: 32px; --s-7: 48px; --s-8: 64px; --s-9: 96px;
+  --section: clamp(32px, 3rem + 2vw, 64px);
+  --container: 1360px;
+  --gutter: 24px;
+  --pad-x: clamp(16px, 4vw, 40px);
+
+  /* ---- elevation */
+  --shadow-card:  0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 4px 10px rgba(60, 20, 24, 0.06), 0 18px 36px -14px rgba(60, 20, 24, 0.26);
+  --shadow-red:   0 6px 16px -6px rgba(197, 33, 11, 0.55);
+
+  /* ---- motion */
+  --ease:      cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-io:   cubic-bezier(0.77, 0, 0.175, 1);
+  --d-fast:    150ms;
+  --d-base:    240ms;
+  --header-h:  128px;
+
+  /* ---- scrollcraft engine theme (showroom + scroll acts) */
+  --sc-canvas: #F7F5F3;  --sc-surface: #FFFFFF;
+  --sc-ink: #1E1819;     --sc-ink-soft: #5E5354;
+  --sc-accent: #E30613;  --sc-accent-ink: #FFFFFF;
+  --sc-font-display: var(--font);
+  --sc-font-text: var(--font);
+  --sc-font-mono: var(--font);
+}
+
+:root[dir="rtl"] {
+  --font: var(--font-ar);
+  --sc-font-display: var(--font-ar);
+  --sc-font-text: var(--font-ar);
+  --track-tight: 0;
+  --track-wide: 0;
+}
