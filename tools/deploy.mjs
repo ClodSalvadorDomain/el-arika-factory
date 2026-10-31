@@ -22,7 +22,7 @@ run('npm run build', root);
 writeFileSync(resolve(dist, '.nojekyll'), '');
 rmSync(resolve(dist, '.git'), { recursive: true, force: true });
 run('git init -q -b gh-pages');
-run('git add -A');
+run('git -c core.autocrlf=false add -A');
 run(`git -c user.name="${name}" -c user.email="${email}" commit -q -m "Deploy ${out('git rev-parse --short HEAD')}"`);
 
 const token = out(`gh auth token --user ${account}`);
